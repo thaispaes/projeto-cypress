@@ -1,0 +1,14 @@
+{
+  "name": "projeto-cypress",
+  "version": "1.0.0",
+  "description": "Projeto de teste ponta a ponta do Site MarkL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thais Paes",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.1.0"
+  }
+}
