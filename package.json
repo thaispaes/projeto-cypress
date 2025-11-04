@@ -9,7 +9,6 @@
   "author": "Thais Paes",
   "license": "ISC",
   "devDependencies": {
-    "@faker-js/faker": "^10.1.0",
     "cypress": "^12.17.4"
   }
 }
