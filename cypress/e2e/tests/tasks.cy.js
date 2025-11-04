@@ -1,7 +1,8 @@
-describe ('tarefas', () => {
-    it('deve cadastrar uma nova tarefa', () => {
-        cy.visit ('http://localhost:3000/')
+describe("tarefas", () => {
+  it("deve cadastrar uma nova tarefa", () => {
+    cy.visit("http://localhost:3000/");
 
-        cy.get('#newTask')
-    })
-})
+    cy.get('input[placeholder="Add a new Task"]')
+      .type("Estudar um livro de JavaScript");
+  });
+});
