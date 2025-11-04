@@ -15,8 +15,10 @@ describe("tarefas", () => {
     cy.get('input[placeholder="Add a new Task"]')
       .type('Estudar Cypress');
 
-
     cy.contains('button', 'Create').click()
 
+    // validação
+    cy.contains('main div p', 'Estudar Cypress')
+      .should('be.visible');
   });
 });
