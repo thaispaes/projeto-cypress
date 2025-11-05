@@ -27,8 +27,10 @@
 Cypress.Commands.add("createTask", (taskName = "") => {
   cy.visit("http://localhost:3000/");
 
+  cy.get('input[placeholder="Add a new Task"]').as('inputTask');
+
   if (taskName !== "") {
-    cy.get('input[placeholder="Add a new Task"]')
+    cy.get('@inputTask')
         .type(taskName);
     
   }
@@ -43,4 +45,13 @@ Cypress.Commands.add("deleteTask", (taskName) => {
   }).then((response) => {
     expect(response.status).to.eq(204);
   });
+});
+
+
+Cypress.Commands.add('isRequired', (targetMessage) => {
+    cy.get('@inputTask')
+        .invoke("prop", "validationMessage")
+        .should((text) => {
+            expect(targetMessage).to.equal(text);
+        });
 });
