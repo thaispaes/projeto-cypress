@@ -28,15 +28,38 @@ describe("tarefas", () => {
   });
 
   context("atualizacao", () => {
-    it.only("deve concluir uma tarefa", () => {
-        const taskName = "Estudar Cypress";
+    it("deve concluir uma tarefa", () => {
+        const taskName = "Fazer atividade";
+
+        cy.createTask(taskName);
 
         cy.visit("http://localhost:3000/");
 
         cy.contains('p', taskName)
             .parent()
-            .find('._listItemToggle_1kgm5_16')
+            .find('button[class*=ItemToggle]')
             .click();
+
+        cy.contains('p', taskName)
+            .should('have.css', 'text-decoration-line', 'line-through');
     });
-  })
+  });
+
+  context("exclusao", () => {
+    it("deve excluir uma tarefa", () => {
+      const taskName = "Estudar atividade de Cypress";
+    
+        cy.createTask(taskName);
+
+      cy.visit("http://localhost:3000/");
+
+      cy.contains('p', taskName)
+          .parent()
+          .find('button[class*=ItemDelete]')
+          .click();
+
+      cy.contains('p', taskName)
+          .should('not.exist');
+    });
+  });
 });
