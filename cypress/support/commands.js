@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add("createTask", (taskName = "") => {
-  cy.visit("http://localhost:3000/");
+  cy.visit("/");
 
   cy.get('input[placeholder="Add a new Task"]').as('inputTask');
 
@@ -39,7 +39,7 @@ Cypress.Commands.add("createTask", (taskName = "") => {
 
 Cypress.Commands.add("deleteTask", (taskName) => {
   cy.request({
-    url: "http://localhost:3000/helper/tasks",
+    url: "/helper/tasks",
     method: "DELETE",
     body: { name: taskName },
   }).then((response) => {

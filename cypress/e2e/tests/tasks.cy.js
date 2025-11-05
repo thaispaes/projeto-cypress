@@ -33,7 +33,7 @@ describe("tarefas", () => {
 
         cy.createTask(taskName);
 
-        cy.visit("http://localhost:3000/");
+        cy.visit("/");
 
         cy.contains('p', taskName)
             .parent()
@@ -51,7 +51,7 @@ describe("tarefas", () => {
     
         cy.createTask(taskName);
 
-      cy.visit("http://localhost:3000/");
+      cy.visit("/");
 
       cy.contains('p', taskName)
           .parent()
