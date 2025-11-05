@@ -26,4 +26,17 @@ describe("tarefas", () => {
       cy.isRequired("This is a required field");
     });
   });
+
+  context("atualizacao", () => {
+    it.only("deve concluir uma tarefa", () => {
+        const taskName = "Estudar Cypress";
+
+        cy.visit("http://localhost:3000/");
+
+        cy.contains('p', taskName)
+            .parent()
+            .find('._listItemToggle_1kgm5_16')
+            .click();
+    });
+  })
 });
