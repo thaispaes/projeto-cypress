@@ -1,4 +1,15 @@
 describe("tarefas", () => {
+
+  let testData;
+
+  before(() => {
+      cy.fixture('tasks').then(t => {
+          testData = t;
+      })
+
+  });
+
+
   context("cadastro", () => {
     const taskName = "Estudar Cypress";
     it("deve cadastrar uma nova tarefa", () => {
@@ -47,7 +58,7 @@ describe("tarefas", () => {
 
   context("exclusao", () => {
     it("deve excluir uma tarefa", () => {
-      const taskName = "Estudar atividade de Cypress";
+      const taskName = testData.dup.name;
     
         cy.createTask(taskName);
 

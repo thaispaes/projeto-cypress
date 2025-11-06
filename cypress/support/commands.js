@@ -39,7 +39,7 @@ Cypress.Commands.add("createTask", (taskName = "") => {
 
 Cypress.Commands.add("deleteTask", (taskName) => {
   cy.request({
-    url: "/helper/tasks",
+    url: Cypress.env("apiUrl") + "/helper/tasks",
     method: "DELETE",
     body: { name: taskName },
   }).then((response) => {
