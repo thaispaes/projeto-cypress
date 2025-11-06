@@ -9,9 +9,8 @@ describe("tarefas", () => {
 
   });
 
-
   context("cadastro", () => {
-    const taskName = "Estudar Cypress";
+    const taskName = testData.dup.name;
     it("deve cadastrar uma nova tarefa", () => {
       //cy.deleteTask(taskName);
 
