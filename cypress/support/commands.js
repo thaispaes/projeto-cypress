@@ -55,3 +55,13 @@ Cypress.Commands.add('isRequired', (targetMessage) => {
             expect(targetMessage).to.equal(text);
         });
 });
+
+Cypress.Commands.add("postTask", (task) => {
+    cy.request({
+        url: Cypress.env("apiUrl") + "/tasks",
+        method: "POST",
+        body: task
+    }).then((response) => {
+        expect(response.status).to.eq(201);
+    })
+});

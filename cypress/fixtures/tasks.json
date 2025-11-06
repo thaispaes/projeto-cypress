@@ -1,6 +1,6 @@
 {
     "dup": {
         "name": "Estudar JavaScript",
-        "isDone": false
+        "is_done": false
     }
 }

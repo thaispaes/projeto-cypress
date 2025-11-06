@@ -10,19 +10,21 @@ describe("tarefas", () => {
   });
 
   context("cadastro", () => {
-    const taskName = testData.dup.name;
+    const taskName = "Estudar criação de comandos no Cypress";
     it("deve cadastrar uma nova tarefa", () => {
       //cy.deleteTask(taskName);
 
       cy.createTask(taskName);
-
       // validação
       cy.contains("main div p", taskName).should("be.visible");
     });
 
     it("não deve permitir tarefa duplicada", () => {
 
-      cy.createTask(taskName);
+      const task = testData.dup;
+
+      cy.postTask(task)
+      cy.createTask(task.name);
 
       // validação
       cy.get(".swal2-html-container")
@@ -57,7 +59,7 @@ describe("tarefas", () => {
 
   context("exclusao", () => {
     it("deve excluir uma tarefa", () => {
-      const taskName = testData.dup.name;
+      const taskName = "Fazer atividade";
     
         cy.createTask(taskName);
 
